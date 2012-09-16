@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "SeatSelectorView.h"
 
 @interface ViewController ()
 
@@ -14,10 +15,20 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    SeatSelectorView *seatSelectorView = [[SeatSelectorView alloc] initWithFrame:CGRectMake(0, 0, 384, 500)];
+    seatSelectorView.viewModel = [self getStubModel];
+    [seatSelectorView update];
+    [self.view addSubview:seatSelectorView];
+}
+
+-(SeatSelectorViewModel *)getStubModel {
+    SeatSelectorViewModel *viewModel = [[[SeatSelectorViewModel alloc] init] autorelease];
+    viewModel.totalSeats = 100;
+    viewModel.seatsPerRow = 10;
+    
+    return viewModel;
 }
 
 - (void)viewDidUnload

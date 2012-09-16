@@ -15,6 +15,15 @@
 		2F676E4B160607860018CAC5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F676E4A160607860018CAC5 /* AppDelegate.m */; };
 		2F676E4E160607860018CAC5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F676E4D160607860018CAC5 /* ViewController.m */; };
 		2F676E51160607860018CAC5 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F676E4F160607860018CAC5 /* ViewController.xib */; };
+		2F676E5D160609400018CAC5 /* SeatRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F676E5C160609400018CAC5 /* SeatRow.m */; };
+		2F676E60160609BE0018CAC5 /* Seat.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F676E5F160609BE0018CAC5 /* Seat.m */; };
+		2F676E6316060A0B0018CAC5 /* SeatView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F676E6216060A0B0018CAC5 /* SeatView.m */; };
+		2F676E6716060A350018CAC5 /* SeatView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F676E6616060A340018CAC5 /* SeatView.xib */; };
+		2F676E6A16060A9E0018CAC5 /* SeatSelectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F676E6916060A9E0018CAC5 /* SeatSelectorView.m */; };
+		2F676E6E16060AE60018CAC5 /* SeatBank.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F676E6D16060AE60018CAC5 /* SeatBank.m */; };
+		2F676E7516060BF50018CAC5 /* SeatSelectorViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F676E7416060BF50018CAC5 /* SeatSelectorViewModel.m */; };
+		2F676E7B16060E900018CAC5 /* SeatSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F676E7A16060E900018CAC5 /* SeatSelectorView.xib */; };
+		2F676E7D16063CB50018CAC5 /* seat.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2F676E7C16063CB50018CAC5 /* seat.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +40,21 @@
 		2F676E4C160607860018CAC5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		2F676E4D160607860018CAC5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		2F676E50160607860018CAC5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		2F676E5B160609400018CAC5 /* SeatRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeatRow.h; sourceTree = "<group>"; };
+		2F676E5C160609400018CAC5 /* SeatRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeatRow.m; sourceTree = "<group>"; };
+		2F676E5E160609BE0018CAC5 /* Seat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Seat.h; sourceTree = "<group>"; };
+		2F676E5F160609BE0018CAC5 /* Seat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Seat.m; sourceTree = "<group>"; };
+		2F676E6116060A0B0018CAC5 /* SeatView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeatView.h; sourceTree = "<group>"; };
+		2F676E6216060A0B0018CAC5 /* SeatView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeatView.m; sourceTree = "<group>"; };
+		2F676E6616060A340018CAC5 /* SeatView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SeatView.xib; sourceTree = "<group>"; };
+		2F676E6816060A9E0018CAC5 /* SeatSelectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeatSelectorView.h; sourceTree = "<group>"; };
+		2F676E6916060A9E0018CAC5 /* SeatSelectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeatSelectorView.m; sourceTree = "<group>"; };
+		2F676E6C16060AE60018CAC5 /* SeatBank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeatBank.h; sourceTree = "<group>"; };
+		2F676E6D16060AE60018CAC5 /* SeatBank.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeatBank.m; sourceTree = "<group>"; };
+		2F676E7316060BF50018CAC5 /* SeatSelectorViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeatSelectorViewModel.h; sourceTree = "<group>"; };
+		2F676E7416060BF50018CAC5 /* SeatSelectorViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeatSelectorViewModel.m; sourceTree = "<group>"; };
+		2F676E7A16060E900018CAC5 /* SeatSelectorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SeatSelectorView.xib; sourceTree = "<group>"; };
+		2F676E7C16063CB50018CAC5 /* seat.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = seat.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +74,7 @@
 		2F676E2B160607860018CAC5 = {
 			isa = PBXGroup;
 			children = (
+				2F676E7C16063CB50018CAC5 /* seat.jpeg */,
 				2F676E40160607860018CAC5 /* SeatSelectorDemo */,
 				2F676E39160607860018CAC5 /* Frameworks */,
 				2F676E37160607860018CAC5 /* Products */,
@@ -77,6 +102,12 @@
 		2F676E40160607860018CAC5 /* SeatSelectorDemo */ = {
 			isa = PBXGroup;
 			children = (
+				2F676E6F16060B5D0018CAC5 /* Model */,
+				2F676E6B16060AD60018CAC5 /* SeatBank */,
+				2F676E5A160608E40018CAC5 /* SeatSelectorView */,
+				2F676E59160608DF0018CAC5 /* SeatView */,
+				2F676E58160608DA0018CAC5 /* Seat */,
+				2F676E57160608CA0018CAC5 /* SeatRow */,
 				2F676E49160607860018CAC5 /* AppDelegate.h */,
 				2F676E4A160607860018CAC5 /* AppDelegate.m */,
 				2F676E4C160607860018CAC5 /* ViewController.h */,
@@ -96,6 +127,62 @@
 				2F676E48160607860018CAC5 /* SeatSelectorDemo-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2F676E57160608CA0018CAC5 /* SeatRow */ = {
+			isa = PBXGroup;
+			children = (
+				2F676E5B160609400018CAC5 /* SeatRow.h */,
+				2F676E5C160609400018CAC5 /* SeatRow.m */,
+			);
+			name = SeatRow;
+			sourceTree = "<group>";
+		};
+		2F676E58160608DA0018CAC5 /* Seat */ = {
+			isa = PBXGroup;
+			children = (
+				2F676E5E160609BE0018CAC5 /* Seat.h */,
+				2F676E5F160609BE0018CAC5 /* Seat.m */,
+			);
+			name = Seat;
+			sourceTree = "<group>";
+		};
+		2F676E59160608DF0018CAC5 /* SeatView */ = {
+			isa = PBXGroup;
+			children = (
+				2F676E6116060A0B0018CAC5 /* SeatView.h */,
+				2F676E6216060A0B0018CAC5 /* SeatView.m */,
+				2F676E6616060A340018CAC5 /* SeatView.xib */,
+			);
+			name = SeatView;
+			sourceTree = "<group>";
+		};
+		2F676E5A160608E40018CAC5 /* SeatSelectorView */ = {
+			isa = PBXGroup;
+			children = (
+				2F676E6816060A9E0018CAC5 /* SeatSelectorView.h */,
+				2F676E6916060A9E0018CAC5 /* SeatSelectorView.m */,
+				2F676E7A16060E900018CAC5 /* SeatSelectorView.xib */,
+			);
+			name = SeatSelectorView;
+			sourceTree = "<group>";
+		};
+		2F676E6B16060AD60018CAC5 /* SeatBank */ = {
+			isa = PBXGroup;
+			children = (
+				2F676E6C16060AE60018CAC5 /* SeatBank.h */,
+				2F676E6D16060AE60018CAC5 /* SeatBank.m */,
+			);
+			name = SeatBank;
+			sourceTree = "<group>";
+		};
+		2F676E6F16060B5D0018CAC5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2F676E7316060BF50018CAC5 /* SeatSelectorViewModel.h */,
+				2F676E7416060BF50018CAC5 /* SeatSelectorViewModel.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +238,9 @@
 			files = (
 				2F676E45160607860018CAC5 /* InfoPlist.strings in Resources */,
 				2F676E51160607860018CAC5 /* ViewController.xib in Resources */,
+				2F676E6716060A350018CAC5 /* SeatView.xib in Resources */,
+				2F676E7B16060E900018CAC5 /* SeatSelectorView.xib in Resources */,
+				2F676E7D16063CB50018CAC5 /* seat.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +254,12 @@
 				2F676E47160607860018CAC5 /* main.m in Sources */,
 				2F676E4B160607860018CAC5 /* AppDelegate.m in Sources */,
 				2F676E4E160607860018CAC5 /* ViewController.m in Sources */,
+				2F676E5D160609400018CAC5 /* SeatRow.m in Sources */,
+				2F676E60160609BE0018CAC5 /* Seat.m in Sources */,
+				2F676E6316060A0B0018CAC5 /* SeatView.m in Sources */,
+				2F676E6A16060A9E0018CAC5 /* SeatSelectorView.m in Sources */,
+				2F676E6E16060AE60018CAC5 /* SeatBank.m in Sources */,
+				2F676E7516060BF50018CAC5 /* SeatSelectorViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
