@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SeatSelectorViewModel.h"
 
-@interface SeatSelectorView : UIView
+@interface SeatSelectorView : UIView <UIScrollViewDelegate>
 
 @property (nonatomic, retain) SeatSelectorViewModel *viewModel;
 

@@ -34,10 +34,13 @@
 }
 */
 
-#pragma mark UIView utility
+-(void)initScroller {
+    self.seatViewScroller.delegate = self;
+    self.seatViewScroller.contentSize = CGSizeMake(0, (int)ceil(self.viewModel.totalSeats/self.viewModel.seatsPerRow) * SEAT_ROW_HEIGHT);
+}
 
--(BOOL)ifView:(UIView *)parentView containsView:(UIView *)childView {
-    if(CGRectIntersectsRect(parentView, childView)) {
+-(BOOL)ifScrollView:(UIScrollView *)scrollView containsView:(UIView *)view {
+    if(CGRectIntersectsRect(scrollView.bounds, view.frame)) {
         return YES;
     }
     else
@@ -45,12 +48,13 @@
 }
 
 -(void)update {
-    int rows = int(ceil(self.viewModel.totalSeats/self.viewModel.seatsPerRow));
+    [self initScroller];
+    int rows = (int)ceil(self.viewModel.totalSeats/self.viewModel.seatsPerRow);
     for(int i=0; i<rows; i++) {
         SeatRow *seatRow = [[SeatRow alloc] initWithFrame:CGRectMake(0, (SEAT_ROW_HEIGHT + PADDING) * i, SEAT_ROW_WIDTH, SEAT_ROW_HEIGHT)];
         [self.seatViewScroller addSubview:seatRow];
         
-        if(seatRow.seats == nil && [self ifView:self.seatViewScroller.bounds containsView:seatRow]) {
+        if(seatRow.seats == nil && [self ifScrollView:self.seatViewScroller containsView:seatRow]) {
             seatRow.seats = [SeatBank getSeats:self.viewModel.seatsPerRow];
             [seatRow addSeats];
         }

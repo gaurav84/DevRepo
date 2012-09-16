@@ -11,7 +11,7 @@
 @implementation Seat
 
 -(id)init {
-    
+    return self;
 }
 
 @end

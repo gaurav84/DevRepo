@@ -31,17 +31,16 @@
 				<string key="IBProxiedObjectIdentifier">IBFirstResponder</string>
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 			</object>
-			<object class="IBUIView" id="985202417">
+			<object class="IBUIView" id="986333469">
 				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<array class="NSMutableArray" key="NSSubviews">
-					<object class="IBUIScrollView" id="535444569">
-						<reference key="NSNextResponder" ref="985202417"/>
+					<object class="IBUIScrollView" id="762589868">
+						<reference key="NSNextResponder" ref="986333469"/>
 						<int key="NSvFlags">274</int>
 						<string key="NSFrameSize">{384, 600}</string>
-						<reference key="NSSuperview" ref="985202417"/>
+						<reference key="NSSuperview" ref="986333469"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
@@ -51,7 +50,7 @@
 				<string key="NSFrameSize">{384, 600}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView" ref="535444569"/>
+				<reference key="NSNextKeyView" ref="762589868"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -69,9 +68,17 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">seatViewScroller</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="535444569"/>
+						<reference key="destination" ref="762589868"/>
 					</object>
 					<int key="connectionID">6</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="762589868"/>
+						<reference key="destination" ref="372490531"/>
+					</object>
+					<int key="connectionID">7</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -95,16 +102,16 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">4</int>
-						<reference key="object" ref="985202417"/>
+						<reference key="object" ref="986333469"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="535444569"/>
+							<reference ref="762589868"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">5</int>
-						<reference key="object" ref="535444569"/>
-						<reference key="parent" ref="985202417"/>
+						<reference key="object" ref="762589868"/>
+						<reference key="parent" ref="986333469"/>
 					</object>
 				</array>
 			</object>
@@ -120,7 +127,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">6</int>
+			<int key="maxID">7</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
