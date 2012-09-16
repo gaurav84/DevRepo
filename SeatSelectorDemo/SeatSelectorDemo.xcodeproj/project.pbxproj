@@ -1,0 +1,286 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2F676E3B160607860018CAC5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F676E3A160607860018CAC5 /* UIKit.framework */; };
+		2F676E3D160607860018CAC5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F676E3C160607860018CAC5 /* Foundation.framework */; };
+		2F676E3F160607860018CAC5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F676E3E160607860018CAC5 /* CoreGraphics.framework */; };
+		2F676E45160607860018CAC5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F676E43160607860018CAC5 /* InfoPlist.strings */; };
+		2F676E47160607860018CAC5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F676E46160607860018CAC5 /* main.m */; };
+		2F676E4B160607860018CAC5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F676E4A160607860018CAC5 /* AppDelegate.m */; };
+		2F676E4E160607860018CAC5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F676E4D160607860018CAC5 /* ViewController.m */; };
+		2F676E51160607860018CAC5 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F676E4F160607860018CAC5 /* ViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2F676E36160607860018CAC5 /* SeatSelectorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeatSelectorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F676E3A160607860018CAC5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2F676E3C160607860018CAC5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2F676E3E160607860018CAC5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2F676E42160607860018CAC5 /* SeatSelectorDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SeatSelectorDemo-Info.plist"; sourceTree = "<group>"; };
+		2F676E44160607860018CAC5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2F676E46160607860018CAC5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2F676E48160607860018CAC5 /* SeatSelectorDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SeatSelectorDemo-Prefix.pch"; sourceTree = "<group>"; };
+		2F676E49160607860018CAC5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2F676E4A160607860018CAC5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2F676E4C160607860018CAC5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		2F676E4D160607860018CAC5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2F676E50160607860018CAC5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2F676E33160607860018CAC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F676E3B160607860018CAC5 /* UIKit.framework in Frameworks */,
+				2F676E3D160607860018CAC5 /* Foundation.framework in Frameworks */,
+				2F676E3F160607860018CAC5 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2F676E2B160607860018CAC5 = {
+			isa = PBXGroup;
+			children = (
+				2F676E40160607860018CAC5 /* SeatSelectorDemo */,
+				2F676E39160607860018CAC5 /* Frameworks */,
+				2F676E37160607860018CAC5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2F676E37160607860018CAC5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2F676E36160607860018CAC5 /* SeatSelectorDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2F676E39160607860018CAC5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2F676E3A160607860018CAC5 /* UIKit.framework */,
+				2F676E3C160607860018CAC5 /* Foundation.framework */,
+				2F676E3E160607860018CAC5 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2F676E40160607860018CAC5 /* SeatSelectorDemo */ = {
+			isa = PBXGroup;
+			children = (
+				2F676E49160607860018CAC5 /* AppDelegate.h */,
+				2F676E4A160607860018CAC5 /* AppDelegate.m */,
+				2F676E4C160607860018CAC5 /* ViewController.h */,
+				2F676E4D160607860018CAC5 /* ViewController.m */,
+				2F676E4F160607860018CAC5 /* ViewController.xib */,
+				2F676E41160607860018CAC5 /* Supporting Files */,
+			);
+			path = SeatSelectorDemo;
+			sourceTree = "<group>";
+		};
+		2F676E41160607860018CAC5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2F676E42160607860018CAC5 /* SeatSelectorDemo-Info.plist */,
+				2F676E43160607860018CAC5 /* InfoPlist.strings */,
+				2F676E46160607860018CAC5 /* main.m */,
+				2F676E48160607860018CAC5 /* SeatSelectorDemo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2F676E35160607860018CAC5 /* SeatSelectorDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F676E54160607860018CAC5 /* Build configuration list for PBXNativeTarget "SeatSelectorDemo" */;
+			buildPhases = (
+				2F676E32160607860018CAC5 /* Sources */,
+				2F676E33160607860018CAC5 /* Frameworks */,
+				2F676E34160607860018CAC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SeatSelectorDemo;
+			productName = SeatSelectorDemo;
+			productReference = 2F676E36160607860018CAC5 /* SeatSelectorDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2F676E2D160607860018CAC5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Gaurav Srivastava";
+			};
+			buildConfigurationList = 2F676E30160607860018CAC5 /* Build configuration list for PBXProject "SeatSelectorDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2F676E2B160607860018CAC5;
+			productRefGroup = 2F676E37160607860018CAC5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2F676E35160607860018CAC5 /* SeatSelectorDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2F676E34160607860018CAC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F676E45160607860018CAC5 /* InfoPlist.strings in Resources */,
+				2F676E51160607860018CAC5 /* ViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2F676E32160607860018CAC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F676E47160607860018CAC5 /* main.m in Sources */,
+				2F676E4B160607860018CAC5 /* AppDelegate.m in Sources */,
+				2F676E4E160607860018CAC5 /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2F676E43160607860018CAC5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F676E44160607860018CAC5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2F676E4F160607860018CAC5 /* ViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F676E50160607860018CAC5 /* en */,
+			);
+			name = ViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2F676E52160607860018CAC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		2F676E53160607860018CAC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2F676E55160607860018CAC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SeatSelectorDemo/SeatSelectorDemo-Prefix.pch";
+				INFOPLIST_FILE = "SeatSelectorDemo/SeatSelectorDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2F676E56160607860018CAC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SeatSelectorDemo/SeatSelectorDemo-Prefix.pch";
+				INFOPLIST_FILE = "SeatSelectorDemo/SeatSelectorDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2F676E30160607860018CAC5 /* Build configuration list for PBXProject "SeatSelectorDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F676E52160607860018CAC5 /* Debug */,
+				2F676E53160607860018CAC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2F676E54160607860018CAC5 /* Build configuration list for PBXNativeTarget "SeatSelectorDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F676E55160607860018CAC5 /* Debug */,
+				2F676E56160607860018CAC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2F676E2D160607860018CAC5 /* Project object */;
+}
