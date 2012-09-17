@@ -39,4 +39,12 @@ static SeatBank *seatBank = nil;
     return seats;
 }
 
++(void)storeSeats:(NSMutableArray *)seats {
+  for(int i=0; i<[seats count]; i++) {
+    if(![[SeatBank instance].seats containsObject:[seats objectAtIndex:i]]) {
+      [[SeatBank instance].seats addObject:[seats objectAtIndex:i]];
+    }
+  }
+}
+
 @end

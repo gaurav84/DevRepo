@@ -23,8 +23,8 @@
 		2F676E6E16060AE60018CAC5 /* SeatBank.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F676E6D16060AE60018CAC5 /* SeatBank.m */; };
 		2F676E7516060BF50018CAC5 /* SeatSelectorViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F676E7416060BF50018CAC5 /* SeatSelectorViewModel.m */; };
 		2F676E7B16060E900018CAC5 /* SeatSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F676E7A16060E900018CAC5 /* SeatSelectorView.xib */; };
-		2F676E7D16063CB50018CAC5 /* seat.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2F676E7C16063CB50018CAC5 /* seat.jpeg */; };
 		2FE8978F1606C9F5003895AA /* SeatRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FE8978E1606C9F5003895AA /* SeatRow.xib */; };
+		A335ED98160716F20062FB6A /* pic.gif in Resources */ = {isa = PBXBuildFile; fileRef = A335ED97160716F20062FB6A /* pic.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,8 +55,8 @@
 		2F676E7316060BF50018CAC5 /* SeatSelectorViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeatSelectorViewModel.h; sourceTree = "<group>"; };
 		2F676E7416060BF50018CAC5 /* SeatSelectorViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeatSelectorViewModel.m; sourceTree = "<group>"; };
 		2F676E7A16060E900018CAC5 /* SeatSelectorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SeatSelectorView.xib; sourceTree = "<group>"; };
-		2F676E7C16063CB50018CAC5 /* seat.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = seat.jpeg; sourceTree = "<group>"; };
 		2FE8978E1606C9F5003895AA /* SeatRow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SeatRow.xib; sourceTree = "<group>"; };
+		A335ED97160716F20062FB6A /* pic.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pic.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +76,7 @@
 		2F676E2B160607860018CAC5 = {
 			isa = PBXGroup;
 			children = (
-				2F676E7C16063CB50018CAC5 /* seat.jpeg */,
+				A335ED97160716F20062FB6A /* pic.gif */,
 				2F676E40160607860018CAC5 /* SeatSelectorDemo */,
 				2F676E39160607860018CAC5 /* Frameworks */,
 				2F676E37160607860018CAC5 /* Products */,
@@ -251,8 +251,8 @@
 				2F676E51160607860018CAC5 /* ViewController.xib in Resources */,
 				2F676E6716060A350018CAC5 /* SeatView.xib in Resources */,
 				2F676E7B16060E900018CAC5 /* SeatSelectorView.xib in Resources */,
-				2F676E7D16063CB50018CAC5 /* seat.jpeg in Resources */,
 				2FE8978F1606C9F5003895AA /* SeatRow.xib in Resources */,
+				A335ED98160716F20062FB6A /* pic.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

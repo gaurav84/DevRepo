@@ -13,32 +13,34 @@
 
 - (id)initWithFrame:(CGRect)frame
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self awakeFromNib];
-    }
-    return self;
+  self = [super initWithFrame:frame];
+  if (self) {
+    [self awakeFromNib];
+  }
+  return self;
 }
 
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect
+ {
+ // Drawing code
+ }
+ */
 
 -(void)awakeFromNib {
-    NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"SeatRow" owner:self options:nil];
-    [self addSubview:[views objectAtIndex:0]];
+  NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"SeatRow" owner:self options:nil];
+  [self addSubview:[views objectAtIndex:0]];
 }
 
 -(void)addSeats {
-    for(int i=0; i<[self.seats count]; i++) {
-        SeatView *seatView = [[SeatView alloc] initWithFrame:CGRectMake(50*i, 0, 50, 50)];
-        [self addSubview:seatView];
-    }
+  for(int i=0; i<[self.seats count]; i++) {
+    // seatWidth to be fixed
+    int seatWidth = 384/8;
+    SeatView *seatView = [[SeatView alloc] initWithFrame:CGRectMake(seatWidth * i, 5, 100, 80)];
+    [self addSubview:seatView];
+  }
 }
 
 @end
