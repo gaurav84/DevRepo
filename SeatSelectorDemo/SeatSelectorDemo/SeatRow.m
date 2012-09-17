@@ -15,7 +15,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        
+        [self awakeFromNib];
     }
     return self;
 }
@@ -28,6 +28,11 @@
     // Drawing code
 }
 */
+
+-(void)awakeFromNib {
+    NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"SeatRow" owner:self options:nil];
+    [self addSubview:[views objectAtIndex:0]];
+}
 
 -(void)addSeats {
     for(int i=0; i<[self.seats count]; i++) {

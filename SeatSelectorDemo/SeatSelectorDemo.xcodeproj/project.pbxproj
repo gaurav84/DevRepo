@@ -24,6 +24,7 @@
 		2F676E7516060BF50018CAC5 /* SeatSelectorViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F676E7416060BF50018CAC5 /* SeatSelectorViewModel.m */; };
 		2F676E7B16060E900018CAC5 /* SeatSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F676E7A16060E900018CAC5 /* SeatSelectorView.xib */; };
 		2F676E7D16063CB50018CAC5 /* seat.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2F676E7C16063CB50018CAC5 /* seat.jpeg */; };
+		2FE8978F1606C9F5003895AA /* SeatRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FE8978E1606C9F5003895AA /* SeatRow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		2F676E7416060BF50018CAC5 /* SeatSelectorViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeatSelectorViewModel.m; sourceTree = "<group>"; };
 		2F676E7A16060E900018CAC5 /* SeatSelectorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SeatSelectorView.xib; sourceTree = "<group>"; };
 		2F676E7C16063CB50018CAC5 /* seat.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = seat.jpeg; sourceTree = "<group>"; };
+		2FE8978E1606C9F5003895AA /* SeatRow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SeatRow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 		2F676E40160607860018CAC5 /* SeatSelectorDemo */ = {
 			isa = PBXGroup;
 			children = (
+				2FE897911606CB20003895AA /* Nibs */,
 				2F676E6F16060B5D0018CAC5 /* Model */,
 				2F676E6B16060AD60018CAC5 /* SeatBank */,
 				2F676E5A160608E40018CAC5 /* SeatSelectorView */,
@@ -152,7 +155,6 @@
 			children = (
 				2F676E6116060A0B0018CAC5 /* SeatView.h */,
 				2F676E6216060A0B0018CAC5 /* SeatView.m */,
-				2F676E6616060A340018CAC5 /* SeatView.xib */,
 			);
 			name = SeatView;
 			sourceTree = "<group>";
@@ -162,7 +164,6 @@
 			children = (
 				2F676E6816060A9E0018CAC5 /* SeatSelectorView.h */,
 				2F676E6916060A9E0018CAC5 /* SeatSelectorView.m */,
-				2F676E7A16060E900018CAC5 /* SeatSelectorView.xib */,
 			);
 			name = SeatSelectorView;
 			sourceTree = "<group>";
@@ -183,6 +184,16 @@
 				2F676E7416060BF50018CAC5 /* SeatSelectorViewModel.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		2FE897911606CB20003895AA /* Nibs */ = {
+			isa = PBXGroup;
+			children = (
+				2FE8978E1606C9F5003895AA /* SeatRow.xib */,
+				2F676E6616060A340018CAC5 /* SeatView.xib */,
+				2F676E7A16060E900018CAC5 /* SeatSelectorView.xib */,
+			);
+			name = Nibs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +252,7 @@
 				2F676E6716060A350018CAC5 /* SeatView.xib in Resources */,
 				2F676E7B16060E900018CAC5 /* SeatSelectorView.xib in Resources */,
 				2F676E7D16063CB50018CAC5 /* seat.jpeg in Resources */,
+				2FE8978F1606C9F5003895AA /* SeatRow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,6 +387,7 @@
 				2F676E56160607860018CAC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

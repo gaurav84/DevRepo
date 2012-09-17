@@ -14,9 +14,14 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        [self awakeFromNib];
     }
     return self;
+}
+
+-(void)awakeFromNib {
+    NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"SeatView" owner:self options:nil];
+    [self addSubview:[views objectAtIndex:0]];
 }
 
 /*

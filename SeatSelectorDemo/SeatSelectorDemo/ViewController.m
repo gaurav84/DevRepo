@@ -25,7 +25,7 @@
 
 -(SeatSelectorViewModel *)getStubModel {
     SeatSelectorViewModel *viewModel = [[[SeatSelectorViewModel alloc] init] autorelease];
-    viewModel.totalSeats = 100;
+    viewModel.totalSeats = 1000;
     viewModel.seatsPerRow = 10;
     
     return viewModel;
