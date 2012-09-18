@@ -12,6 +12,7 @@
 
 @property (nonatomic, retain) NSMutableArray *seats;
 
--(void)addSeats;
+-(void)addSeatsToRow;
+-(void)removeAllSeatsFromRow;
 
 @end

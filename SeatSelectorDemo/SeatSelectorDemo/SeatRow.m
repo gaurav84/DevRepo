@@ -34,12 +34,18 @@
   [self addSubview:[views objectAtIndex:0]];
 }
 
--(void)addSeats {
+-(void)addSeatsToRow {
   for(int i=0; i<[self.seats count]; i++) {
     // seatWidth to be fixed
     int seatWidth = 384/8;
     SeatView *seatView = [[SeatView alloc] initWithFrame:CGRectMake(seatWidth * i, 5, 100, 80)];
     [self addSubview:seatView];
+  }
+}
+
+-(void)removeAllSeatsFromRow {
+  for (UIView *view in self.subviews) {
+    [view removeFromSuperview];
   }
 }
 

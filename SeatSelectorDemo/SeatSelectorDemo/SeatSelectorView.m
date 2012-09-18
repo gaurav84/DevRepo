@@ -17,14 +17,13 @@
 
 @implementation SeatSelectorView
 
-NSMutableArray *seatsToBeStored;
+NSMutableArray *seatRowRef;
 
 - (id)initWithFrame:(CGRect)frame
 {
   self = [super initWithFrame:frame];
   if (self) {
     [self awakeFromNib];
-    seatsToBeStored = [[[NSMutableArray alloc] init] autorelease];
   }
   return self;
 }
@@ -49,7 +48,7 @@ NSMutableArray *seatsToBeStored;
 }
 
 -(BOOL)ifScrollView:(UIScrollView *)scrollView containsView:(UIView *)view {
-  if(CGRectContainsRect(scrollView.frame, view.frame)) {
+  if(CGRectIntersectsRect(scrollView.frame, view.frame)) {
     return YES;
   }
   else
@@ -58,31 +57,71 @@ NSMutableArray *seatsToBeStored;
 
 -(void)update {
   [self initScroller];
+  seatRowRef = [[NSMutableArray alloc] init];
+  
   int rows = (int)ceil(self.viewModel.totalSeats/self.viewModel.seatsPerRow);
   for(int i=0; i<rows; i++) {
     SeatRow *seatRow = [[SeatRow alloc] initWithFrame:CGRectMake(0, (SEAT_ROW_HEIGHT + PADDING) * i, SEAT_ROW_WIDTH, SEAT_ROW_HEIGHT)];
     [self.seatViewScroller addSubview:seatRow];
     
+    [seatRowRef addObject:seatRow];
     if(seatRow.seats == nil && [self ifScrollView:self.seatViewScroller containsView:seatRow]) {
       seatRow.seats = [SeatBank getSeats:self.viewModel.seatsPerRow];
-      [seatRow addSeats];
+      [seatRow addSeatsToRow];
     }
   }
+  
+  NSLog(@"%@", seatRowRef);
+  
+}
+
+-(SeatRow *)seatRowWithSeatsOutsideView {
+  for(int i=0; i<[seatRowRef count]; i++) {
+    SeatRow *seatRow = [seatRowRef objectAtIndex:i];
+    if(!CGRectIntersectsRect(self.seatViewScroller.bounds, seatRow.frame)) {
+      if([seatRow.seats count] > 0)
+        return seatRow;
+    }
+  }
+  
+  return nil;
+}
+
+-(SeatRow *)seatRowToGetSeatsEnteringView {
+  for(int i=0; i<[seatRowRef count]; i++) {
+    SeatRow *seatRow = [seatRowRef objectAtIndex:i];
+    if(seatRow.seats == nil) {
+      NSLog(@"SEATROW without SEATS: %@", seatRow);
+      return seatRow;
+    }
+  }
+  
+  return nil;
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
-  for(int i=0; i<[[self.seatViewScroller subviews] count]; i++) {
-    UIView *view = [[self.seatViewScroller subviews] objectAtIndex:i];
-    if([view isKindOfClass:[SeatRow class]]) {
-      SeatRow *seatRow = [[self.seatViewScroller subviews] objectAtIndex:i];
-      if(![self ifScrollView:self.seatViewScroller containsView:seatRow]) {
-        // get seats from bank
-      }
-      else {
-        
-      }
-    }
-  }
+  
+//  SeatRow *nextRow = [self seatRowToGetSeatsEnteringView];
+//  nextRow.seats = [SeatBank getSeats:self.viewModel.seatsPerRow];
+//  [nextRow addSeatsToRow];
+//  
+//  SeatRow *rowOutOfVisibleArea = [self seatRowWithSeatsOutsideView];
+//  if(rowOutOfVisibleArea.seats != nil) {
+//    [SeatBank storeSeats:rowOutOfVisibleArea.seats];
+//    [rowOutOfVisibleArea removeAllSeatsFromRow];
+//    rowOutOfVisibleArea.seats = nil;
+//    
+//  }
+  
+  
+  
+  //
+  //  NSLog(@"next visible row: %@", seatRow);
+  //  if(seatRow  != nil) {
+  //    seatRow.seats = [SeatBank getSeats:self.viewModel.seatsPerRow];
+  //    [seatRow addSeatsToRow];
+  //  }
+  
 }
 
 @end
