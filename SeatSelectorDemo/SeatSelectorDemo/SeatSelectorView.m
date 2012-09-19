@@ -44,7 +44,7 @@ NSMutableArray *seatRowRef;
 
 -(void)initScroller {
   self.seatViewScroller.delegate = self;
-  self.seatViewScroller.contentSize = CGSizeMake(0, (int)ceil(self.viewModel.totalSeats/self.viewModel.seatsPerRow) * SEAT_ROW_HEIGHT);
+  self.seatViewScroller.contentSize = CGSizeMake(0, ceil((float)[[self viewModel] totalSeats]/[[self viewModel] seatsPerRow]) * (SEAT_ROW_HEIGHT + PADDING));
 }
 
 -(BOOL)ifScrollView:(UIScrollView *)scrollView containsView:(UIView *)view {
@@ -59,7 +59,7 @@ NSMutableArray *seatRowRef;
   [self initScroller];
   seatRowRef = [[NSMutableArray alloc] init];
   
-  int rows = (int)ceil(self.viewModel.totalSeats/self.viewModel.seatsPerRow);
+  float rows = ceil((float)[[self viewModel] totalSeats]/[[self viewModel] seatsPerRow]);
   for(int i=0; i<rows; i++) {
     SeatRow *seatRow = [[SeatRow alloc] initWithFrame:CGRectMake(0, (SEAT_ROW_HEIGHT + PADDING) * i, SEAT_ROW_WIDTH, SEAT_ROW_HEIGHT)];
     [self.seatViewScroller addSubview:seatRow];
@@ -70,9 +70,6 @@ NSMutableArray *seatRowRef;
       [seatRow addSeatsToRow];
     }
   }
-  
-  //NSLog(@"%@", seatRowRef);
-  
 }
 
 -(SeatRow *)seatRowWithSeatsLeavingView {
@@ -93,14 +90,12 @@ NSMutableArray *seatRowRef;
   for(int i=0; i<[seatRowRef count]; i++) {
     SeatRow *seatRow = [seatRowRef objectAtIndex:i];
     if(CGRectIntersectsRect(self.seatViewScroller.bounds, seatRow.frame)) {
-      //NSLog(@"is intersecting: %@", seatRow.seats);
       if([seatRow.seats count] < self.viewModel.seatsPerRow) {
         result = seatRow;
       }
     }
     
   }
-  //NSLog(@"result: %@", result);
   return result;
 }
 
@@ -111,10 +106,10 @@ NSMutableArray *seatRowRef;
   [nextVisibleSeatRow addSeatsToRow];
   
   
-  SeatRow *rowOutOfVisibleArea = [self seatRowWithSeatsLeavingView];
-  [SeatBank storeSeats:rowOutOfVisibleArea.seats];
-  [rowOutOfVisibleArea.seats removeAllObjects];
-  [rowOutOfVisibleArea removeAllSeatsFromRow];
+  SeatRow *seatRowLeavingVisibleArea = [self seatRowWithSeatsLeavingView];
+  [SeatBank storeSeats:seatRowLeavingVisibleArea.seats];
+  [seatRowLeavingVisibleArea.seats removeAllObjects];
+  [seatRowLeavingVisibleArea removeAllSeatsFromRow];
 }
 
 @end

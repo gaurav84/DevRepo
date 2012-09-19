@@ -36,9 +36,9 @@
 
 -(void)addSeatsToRow {
   for(int i=0; i<[self.seats count]; i++) {
-    // seatWidth to be fixed
-    int seatWidth = 384/8;
-    SeatView *seatView = [[SeatView alloc] initWithFrame:CGRectMake(seatWidth * i, 5, 100, 80)];
+    // seatWidth to be fixed, hardcoding 10 as i am not sure if this class can have reference to SeatSelectorViewModel
+    int seatWidth = 384/10;
+    SeatView *seatView = [[SeatView alloc] initWithFrame:CGRectMake(seatWidth * i, 5, seatWidth, seatWidth)];
     [self addSubview:seatView];
   }
 }

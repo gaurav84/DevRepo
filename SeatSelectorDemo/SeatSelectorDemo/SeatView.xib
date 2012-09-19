@@ -38,7 +38,7 @@
 					<object class="IBUIImageView" id="50580210">
 						<reference key="NSNextResponder" ref="443013904"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrameSize">{40, 40}</string>
+						<string key="NSFrame">{{3, 2}, {35, 35}}</string>
 						<reference key="NSSuperview" ref="443013904"/>
 						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -46,7 +46,7 @@
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">pic.gif</string>
+							<string key="NSResourceName">seat.jpeg</string>
 						</object>
 					</object>
 				</array>
@@ -149,8 +149,8 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="NS.key.0">pic.gif</string>
-			<string key="NS.object.0">{40, 40}</string>
+			<string key="NS.key.0">seat.jpeg</string>
+			<string key="NS.object.0">{35, 35}</string>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">1498</string>
 	</data>

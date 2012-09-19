@@ -24,6 +24,11 @@
     [self addSubview:[views objectAtIndex:0]];
 }
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+  NSLog(@"Touched Seat: %@", self);
+}
+
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
