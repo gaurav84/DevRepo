@@ -20,15 +20,6 @@
   return self;
 }
 
-/*
- // Only override drawRect: if you perform custom drawing.
- // An empty implementation adversely affects performance during animation.
- - (void)drawRect:(CGRect)rect
- {
- // Drawing code
- }
- */
-
 -(void)awakeFromNib {
   NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"SeatRow" owner:self options:nil];
   [self addSubview:[views objectAtIndex:0]];
@@ -38,7 +29,7 @@
   for(int i=0; i<[self.seats count]; i++) {
     // seatWidth to be fixed, hardcoding 10 as i am not sure if this class can have reference to SeatSelectorViewModel
     int seatWidth = 384/10;
-    SeatView *seatView = [[SeatView alloc] initWithFrame:CGRectMake(seatWidth * i, 5, seatWidth, seatWidth)];
+    SeatView *seatView = [[[SeatView alloc] initWithFrame:CGRectMake(seatWidth * i, 5, seatWidth, seatWidth)] autorelease];
     [self addSubview:seatView];
   }
 }
@@ -47,6 +38,11 @@
   for (UIView *view in self.subviews) {
     [view removeFromSuperview];
   }
+}
+
+-(void)dealloc {
+    [super dealloc];
+    [self.seats release];
 }
 
 @end

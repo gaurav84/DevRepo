@@ -39,26 +39,9 @@ NSMutableArray *seatRowRef;
   [self.viewModel release];
 }
 
-/*
- // Only override drawRect: if you perform custom drawing.
- // An empty implementation adversely affects performance during animation.
- - (void)drawRect:(CGRect)rect
- {
- // Drawing code
- }
- */
-
 -(void)initScroller {
   self.seatViewScroller.delegate = self;
   self.seatViewScroller.contentSize = CGSizeMake(0, ceil((float)[[self viewModel] totalSeats]/[[self viewModel] seatsPerRow]) * (SEAT_ROW_HEIGHT + PADDING));
-}
-
--(BOOL)ifScrollView:(UIScrollView *)scrollView containsView:(UIView *)view {
-  if(CGRectIntersectsRect(scrollView.frame, view.frame)) {
-    return YES;
-  }
-  else
-    return NO;
 }
 
 -(void)update {
@@ -67,7 +50,7 @@ NSMutableArray *seatRowRef;
   
   float rows = ceil((float)[[self viewModel] totalSeats]/[[self viewModel] seatsPerRow]);
   for(int i=0; i<rows; i++) {
-    SeatRow *seatRow = [[SeatRow alloc] initWithFrame:CGRectMake(0, (SEAT_ROW_HEIGHT + PADDING) * i, SEAT_ROW_WIDTH, SEAT_ROW_HEIGHT)];
+    SeatRow *seatRow = [[[SeatRow alloc] initWithFrame:CGRectMake(0, (SEAT_ROW_HEIGHT + PADDING) * i, SEAT_ROW_WIDTH, SEAT_ROW_HEIGHT)] autorelease];
     [self.seatViewScroller addSubview:seatRow];
     
     [seatRowRef addObject:seatRow];
@@ -76,6 +59,14 @@ NSMutableArray *seatRowRef;
       [seatRow addSeatsToRow];
     }
   }
+}
+
+-(BOOL)ifScrollView:(UIScrollView *)scrollView containsView:(UIView *)view {
+    if(CGRectIntersectsRect(scrollView.frame, view.frame)) {
+        return YES;
+    }
+    else
+        return NO;
 }
 
 -(SeatRow *)seatRowWithSeatsLeavingView {

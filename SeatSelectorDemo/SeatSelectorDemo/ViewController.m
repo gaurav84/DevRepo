@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    SeatSelectorView *seatSelectorView = [[SeatSelectorView alloc] initWithFrame:CGRectMake(200, 200, 384, 600)];
+    SeatSelectorView *seatSelectorView = [[[SeatSelectorView alloc] initWithFrame:CGRectMake(200, 200, 384, 600)] autorelease];
     seatSelectorView.viewModel = [self getStubModel];
     [seatSelectorView update];
     [self.view addSubview:seatSelectorView];

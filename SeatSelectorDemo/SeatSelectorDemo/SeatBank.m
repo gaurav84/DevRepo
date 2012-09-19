@@ -17,7 +17,7 @@ static SeatBank *seatBank = nil;
   
   if(!seatBank) {
     seatBank = [[SeatBank alloc] init];
-    [SeatBank instance].seats = [[NSMutableArray alloc] init];
+    [SeatBank instance].seats = [[[NSMutableArray alloc] init] autorelease];
   }
   return seatBank;
 }
@@ -27,7 +27,7 @@ static SeatBank *seatBank = nil;
   
   if([[SeatBank instance].seats count] == 0) {
     for(int i=0; i<count; i++) {
-      Seat *seat = [[Seat alloc] init];
+      Seat *seat = [[[Seat alloc] init] autorelease];
       [seats addObject:seat];
     }
   }
