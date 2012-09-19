@@ -71,57 +71,50 @@ NSMutableArray *seatRowRef;
     }
   }
   
-  NSLog(@"%@", seatRowRef);
+  //NSLog(@"%@", seatRowRef);
   
 }
 
--(SeatRow *)seatRowWithSeatsOutsideView {
+-(SeatRow *)seatRowWithSeatsLeavingView {
+  SeatRow *result = nil;
   for(int i=0; i<[seatRowRef count]; i++) {
     SeatRow *seatRow = [seatRowRef objectAtIndex:i];
     if(!CGRectIntersectsRect(self.seatViewScroller.bounds, seatRow.frame)) {
       if([seatRow.seats count] > 0)
-        return seatRow;
+        result = seatRow;
     }
   }
   
-  return nil;
+  return result;
 }
 
 -(SeatRow *)seatRowToGetSeatsEnteringView {
+  SeatRow *result = nil;
   for(int i=0; i<[seatRowRef count]; i++) {
     SeatRow *seatRow = [seatRowRef objectAtIndex:i];
-    if(seatRow.seats == nil) {
-      NSLog(@"SEATROW without SEATS: %@", seatRow);
-      return seatRow;
+    if(CGRectIntersectsRect(self.seatViewScroller.bounds, seatRow.frame)) {
+      //NSLog(@"is intersecting: %@", seatRow.seats);
+      if([seatRow.seats count] < self.viewModel.seatsPerRow) {
+        result = seatRow;
+      }
     }
+    
   }
-  
-  return nil;
+  //NSLog(@"result: %@", result);
+  return result;
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
   
-//  SeatRow *nextRow = [self seatRowToGetSeatsEnteringView];
-//  nextRow.seats = [SeatBank getSeats:self.viewModel.seatsPerRow];
-//  [nextRow addSeatsToRow];
-//  
-//  SeatRow *rowOutOfVisibleArea = [self seatRowWithSeatsOutsideView];
-//  if(rowOutOfVisibleArea.seats != nil) {
-//    [SeatBank storeSeats:rowOutOfVisibleArea.seats];
-//    [rowOutOfVisibleArea removeAllSeatsFromRow];
-//    rowOutOfVisibleArea.seats = nil;
-//    
-//  }
+  SeatRow *nextVisibleSeatRow = [self seatRowToGetSeatsEnteringView];
+  nextVisibleSeatRow.seats = [SeatBank getSeats:self.viewModel.seatsPerRow];
+  [nextVisibleSeatRow addSeatsToRow];
   
   
-  
-  //
-  //  NSLog(@"next visible row: %@", seatRow);
-  //  if(seatRow  != nil) {
-  //    seatRow.seats = [SeatBank getSeats:self.viewModel.seatsPerRow];
-  //    [seatRow addSeatsToRow];
-  //  }
-  
+  SeatRow *rowOutOfVisibleArea = [self seatRowWithSeatsLeavingView];
+  [SeatBank storeSeats:rowOutOfVisibleArea.seats];
+  [rowOutOfVisibleArea.seats removeAllObjects];
+  [rowOutOfVisibleArea removeAllSeatsFromRow];
 }
 
 @end
