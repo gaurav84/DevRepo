@@ -25,7 +25,10 @@
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-  NSLog(@"Touched Seat: %@", self);
+  NSString *message = [NSString stringWithFormat:@"%p", self];
+  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Seat Touched" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+  [alert show];
+  [alert release];
 }
 
 

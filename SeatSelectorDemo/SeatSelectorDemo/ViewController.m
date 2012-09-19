@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    SeatSelectorView *seatSelectorView = [[SeatSelectorView alloc] initWithFrame:CGRectMake(0, 0, 384, 600)];
+    SeatSelectorView *seatSelectorView = [[SeatSelectorView alloc] initWithFrame:CGRectMake(200, 200, 384, 600)];
     seatSelectorView.viewModel = [self getStubModel];
     [seatSelectorView update];
     [self.view addSubview:seatSelectorView];
@@ -25,7 +25,7 @@
 
 -(SeatSelectorViewModel *)getStubModel {
     SeatSelectorViewModel *viewModel = [[[SeatSelectorViewModel alloc] init] autorelease];
-    viewModel.totalSeats = 140;
+    viewModel.totalSeats = 200;
     viewModel.seatsPerRow = 10;
     
     return viewModel;

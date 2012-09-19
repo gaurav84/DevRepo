@@ -33,6 +33,12 @@ NSMutableArray *seatRowRef;
   [self addSubview:[views objectAtIndex:0]];
 }
 
+-(void)dealloc {
+  [super dealloc];
+  [seatRowRef release];
+  [self.viewModel release];
+}
+
 /*
  // Only override drawRect: if you perform custom drawing.
  // An empty implementation adversely affects performance during animation.
@@ -100,15 +106,21 @@ NSMutableArray *seatRowRef;
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
-  
+  [self getSeatsForNextVisibleRow];
+  [self storeSeatsForRowsOutsideView];
+}
+
+-(void)getSeatsForNextVisibleRow {
   SeatRow *nextVisibleSeatRow = [self seatRowToGetSeatsEnteringView];
   nextVisibleSeatRow.seats = [SeatBank getSeats:self.viewModel.seatsPerRow];
   [nextVisibleSeatRow addSeatsToRow];
-  
-  
+}
+
+-(void)storeSeatsForRowsOutsideView {
   SeatRow *seatRowLeavingVisibleArea = [self seatRowWithSeatsLeavingView];
   [SeatBank storeSeats:seatRowLeavingVisibleArea.seats];
   [seatRowLeavingVisibleArea.seats removeAllObjects];
+  seatRowLeavingVisibleArea.seats = nil;
   [seatRowLeavingVisibleArea removeAllSeatsFromRow];
 }
 
