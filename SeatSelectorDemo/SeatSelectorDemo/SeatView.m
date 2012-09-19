@@ -24,21 +24,12 @@
     [self addSubview:[views objectAtIndex:0]];
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-  NSString *message = [NSString stringWithFormat:@"%p", self];
-  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Seat Touched" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
-  [alert show];
-  [alert release];
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    NSString *message = [NSString stringWithFormat:@"%p", self];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Seat Touched" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+    [alert show];
+    [alert release];
 }
 
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end
