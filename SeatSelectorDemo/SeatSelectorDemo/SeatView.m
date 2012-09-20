@@ -10,26 +10,38 @@
 
 @implementation SeatView
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self awakeFromNib];
-    }
-    return self;
+
+- (id)initWithFrame:(CGRect)frame {
+  self = [super initWithFrame:frame];
+  if (self) {
+    [self awakeFromNib];
+    self.isSelected = NO;
+  }
+  return self;
 }
 
 -(void)awakeFromNib {
-    NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"SeatView" owner:self options:nil];
-    [self addSubview:[views objectAtIndex:0]];
+  NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"SeatView" owner:self options:nil];
+  [self addSubview:[views objectAtIndex:0]];
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    NSString *message = [NSString stringWithFormat:@"%p", self];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Seat Touched" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
-    [alert show];
-    [alert release];
+  NSLog(@"%@", NSStringFromCGRect(self.frame));
+  [self.delegate didTouchSeat:self];
+
+  if(self.isSelected) {
+    self.isSelected = NO;
+    self.isSeatSelected.text = @"";
+  }
+  else {
+    self.isSelected = YES;
+    self.isSeatSelected.text = @"√";
+  }
 }
 
+-(void)dealloc {
+  [super dealloc];
+  [self.delegate release];
+}
 
 @end

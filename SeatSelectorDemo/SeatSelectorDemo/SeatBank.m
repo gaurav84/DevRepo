@@ -49,7 +49,7 @@ static SeatBank *seatBank = nil;
 }
 
 +(void)totalSeats {
-    NSLog(@"Total Seats in SeatBank: %d", [[SeatBank instance].seats count]);
+    //NSLog(@"Total Seats in SeatBank: %d", [[SeatBank instance].seats count]);
 }
 
 -(void)dealloc {

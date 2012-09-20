@@ -27,9 +27,11 @@
 
 -(void)addSeatsToRow {
   for(int i=0; i<[self.seats count]; i++) {
-    // seatWidth to be fixed, hardcoding 10 as i am not sure if this class can have reference to SeatSelectorViewModel
+    // seatWidth to be fixed, hardcoding 10 as i am not sure wether this class can have reference to SeatSelectorViewModel
     int seatWidth = 384/10;
-    SeatView *seatView = [[[SeatView alloc] initWithFrame:CGRectMake(seatWidth * i, 5, seatWidth, seatWidth)] autorelease];
+    SeatView *seatView = [[[SeatView alloc] initWithFrame:CGRectMake(seatWidth * i, 10, seatWidth, seatWidth)] autorelease];
+    seatView.delegate = self;
+    seatView.seat = [self.seats objectAtIndex:i];
     [self addSubview:seatView];
   }
 }
@@ -40,9 +42,14 @@
   }
 }
 
+-(void)didTouchSeat:(SeatView *)seatView {
+  [self.delegate didTouchSeat:seatView];
+}
+
 -(void)dealloc {
-    [super dealloc];
-    [self.seats release];
+  [super dealloc];
+  [self.seats release];
+  [self.delegate release];
 }
 
 @end

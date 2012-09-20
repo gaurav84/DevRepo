@@ -24,7 +24,7 @@
 		2F676E7516060BF50018CAC5 /* SeatSelectorViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F676E7416060BF50018CAC5 /* SeatSelectorViewModel.m */; };
 		2F676E7B16060E900018CAC5 /* SeatSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F676E7A16060E900018CAC5 /* SeatSelectorView.xib */; };
 		2FE8978F1606C9F5003895AA /* SeatRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FE8978E1606C9F5003895AA /* SeatRow.xib */; };
-		A31F4D341609FBE6001C88AF /* seat.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A31F4D331609FBE6001C88AF /* seat.jpeg */; };
+		A34E3F0C160AE87600892635 /* seat.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A34E3F0B160AE87600892635 /* seat.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,7 +56,7 @@
 		2F676E7416060BF50018CAC5 /* SeatSelectorViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeatSelectorViewModel.m; sourceTree = "<group>"; };
 		2F676E7A16060E900018CAC5 /* SeatSelectorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SeatSelectorView.xib; sourceTree = "<group>"; };
 		2FE8978E1606C9F5003895AA /* SeatRow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SeatRow.xib; sourceTree = "<group>"; };
-		A31F4D331609FBE6001C88AF /* seat.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = seat.jpeg; sourceTree = "<group>"; };
+		A34E3F0B160AE87600892635 /* seat.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = seat.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +76,7 @@
 		2F676E2B160607860018CAC5 = {
 			isa = PBXGroup;
 			children = (
-				A31F4D331609FBE6001C88AF /* seat.jpeg */,
+				A34E3F0B160AE87600892635 /* seat.jpeg */,
 				2F676E40160607860018CAC5 /* SeatSelectorDemo */,
 				2F676E39160607860018CAC5 /* Frameworks */,
 				2F676E37160607860018CAC5 /* Products */,
@@ -252,7 +252,7 @@
 				2F676E6716060A350018CAC5 /* SeatView.xib in Resources */,
 				2F676E7B16060E900018CAC5 /* SeatSelectorView.xib in Resources */,
 				2FE8978F1606C9F5003895AA /* SeatRow.xib in Resources */,
-				A31F4D341609FBE6001C88AF /* seat.jpeg in Resources */,
+				A34E3F0C160AE87600892635 /* seat.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

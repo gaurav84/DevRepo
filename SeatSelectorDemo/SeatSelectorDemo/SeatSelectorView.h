@@ -8,11 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "SeatSelectorViewModel.h"
+#import "Seat.h"
+#import "SeatRow.h"
 
-@interface SeatSelectorView : UIView <UIScrollViewDelegate>
+@protocol SeatSelectorViewDelegate <NSObject>
+@optional
+-(void)didTouchSeat:(SeatView *)seatView;
+@end
+
+@interface SeatSelectorView : UIView <UIScrollViewDelegate, SeatRowDelegate>
 
 @property (nonatomic, retain) SeatSelectorViewModel *viewModel;
-
+@property (nonatomic, retain) id<SeatSelectorViewDelegate> delegate;
 @property (nonatomic, retain) IBOutlet UIScrollView *seatViewScroller;
 
 -(void)update;

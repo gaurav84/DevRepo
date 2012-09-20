@@ -21,104 +21,110 @@ NSMutableArray *seatRowRef;
 
 - (id)initWithFrame:(CGRect)frame
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self awakeFromNib];
-    }
-    return self;
+  self = [super initWithFrame:frame];
+  if (self) {
+    [self awakeFromNib];
+  }
+  return self;
 }
 
 -(void)awakeFromNib {
-    NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"SeatSelectorView" owner:self options:nil];
-    [self addSubview:[views objectAtIndex:0]];
-}
-
--(void)dealloc {
-    [super dealloc];
-    [seatRowRef release];
-    [self.viewModel release];
-    [self.seatViewScroller release];
+  NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"SeatSelectorView" owner:self options:nil];
+  [self addSubview:[views objectAtIndex:0]];
 }
 
 -(void)initScroller {
-    self.seatViewScroller.delegate = self;
-    self.seatViewScroller.contentSize = CGSizeMake(0, ceil((float)[[self viewModel] totalSeats]/[[self viewModel] seatsPerRow]) * (SEAT_ROW_HEIGHT + PADDING));
+  self.seatViewScroller.delegate = self;
+  self.seatViewScroller.contentSize = CGSizeMake(0, ceil((float)[[self viewModel] totalSeats]/[[self viewModel] seatsPerRow]) * (SEAT_ROW_HEIGHT + PADDING));
 }
 
 -(void)update {
-    [self initScroller];
-    seatRowRef = [[NSMutableArray alloc] init];
+  [self initScroller];
+  seatRowRef = [[NSMutableArray alloc] init];
+  
+  float rows = ceil((float)[[self viewModel] totalSeats]/[[self viewModel] seatsPerRow]);
+  for(int i=0; i<rows; i++) {
+    SeatRow *seatRow = [[[SeatRow alloc] initWithFrame:CGRectMake(0, (SEAT_ROW_HEIGHT + PADDING) * i, SEAT_ROW_WIDTH, SEAT_ROW_HEIGHT)] autorelease];
+    seatRow.delegate = self;
+    [self.seatViewScroller addSubview:seatRow];
     
-    float rows = ceil((float)[[self viewModel] totalSeats]/[[self viewModel] seatsPerRow]);
-    for(int i=0; i<rows; i++) {
-        SeatRow *seatRow = [[[SeatRow alloc] initWithFrame:CGRectMake(0, (SEAT_ROW_HEIGHT + PADDING) * i, SEAT_ROW_WIDTH, SEAT_ROW_HEIGHT)] autorelease];
-        [self.seatViewScroller addSubview:seatRow];
-        
-        [seatRowRef addObject:seatRow];
-        if(seatRow.seats == nil && [self ifScrollView:self.seatViewScroller containsView:seatRow]) {
-            seatRow.seats = [SeatBank getSeats:self.viewModel.seatsPerRow];
-            [seatRow addSeatsToRow];
-        }
+    [seatRowRef addObject:seatRow];
+    if(seatRow.seats == nil && [self ifScrollView:self.seatViewScroller containsView:seatRow]) {
+      seatRow.seats = [SeatBank getSeats:self.viewModel.seatsPerRow];
+      [seatRow addSeatsToRow];
     }
+  }
 }
 
 -(BOOL)ifScrollView:(UIScrollView *)scrollView containsView:(UIView *)view {
-    if(CGRectIntersectsRect(scrollView.frame, view.frame)) {
-        return YES;
-    }
-    else
-        return NO;
+  if(CGRectIntersectsRect(scrollView.frame, view.frame)) {
+    return YES;
+  }
+  else
+    return NO;
 }
 
 -(SeatRow *)seatRowWithSeatsLeavingView {
-    SeatRow *result = nil;
-    for(int i=0; i<[seatRowRef count]; i++) {
-        SeatRow *seatRow = [seatRowRef objectAtIndex:i];
-        if(!CGRectIntersectsRect(self.seatViewScroller.bounds, seatRow.frame)) {
-            if([seatRow.seats count] > 0)
-                result = seatRow;
-        }
+  SeatRow *result = nil;
+  for(int i=0; i<[seatRowRef count]; i++) {
+    SeatRow *seatRow = [seatRowRef objectAtIndex:i];
+    if(!CGRectIntersectsRect(self.seatViewScroller.bounds, seatRow.frame)) {
+      if([seatRow.seats count] > 0)
+        result = seatRow;
     }
-    
-    return result;
+  }
+  
+  return result;
 }
 
 -(SeatRow *)seatRowToGetSeatsEnteringView {
-    SeatRow *result = nil;
-    for(int i=0; i<[seatRowRef count]; i++) {
-        SeatRow *seatRow = [seatRowRef objectAtIndex:i];
-        if(CGRectIntersectsRect(self.seatViewScroller.bounds, seatRow.frame)) {
-            if([seatRow.seats count] < self.viewModel.seatsPerRow) {
-                result = seatRow;
-            }
-        }
-        
+  SeatRow *result = nil;
+  for(int i=0; i<[seatRowRef count]; i++) {
+    SeatRow *seatRow = [seatRowRef objectAtIndex:i];
+    if(CGRectIntersectsRect(self.seatViewScroller.bounds, seatRow.frame)) {
+      if([seatRow.seats count] < self.viewModel.seatsPerRow) {
+        result = seatRow;
+      }
     }
-    return result;
+    
+  }
+  return result;
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    [self getSeatsForNextVisibleRow];
-    [self storeSeatsForRowsOutsideView];
+  [self getSeatsForNextVisibleRow];
+  [self storeSeatsForRowsOutsideView];
 }
 
 -(void)getSeatsForNextVisibleRow {
-    SeatRow *nextVisibleSeatRow = [self seatRowToGetSeatsEnteringView];
-    if(nextVisibleSeatRow) {
-        nextVisibleSeatRow.seats = [SeatBank getSeats:self.viewModel.seatsPerRow];
-        [nextVisibleSeatRow addSeatsToRow];
-    }
-    
+  SeatRow *nextVisibleSeatRow = [self seatRowToGetSeatsEnteringView];
+  if(nextVisibleSeatRow) {
+    nextVisibleSeatRow.seats = [SeatBank getSeats:self.viewModel.seatsPerRow];
+    [nextVisibleSeatRow addSeatsToRow];
+  }
+  
 }
 
 -(void)storeSeatsForRowsOutsideView {
-    SeatRow *seatRowLeavingVisibleArea = [self seatRowWithSeatsLeavingView];
-    if(seatRowLeavingVisibleArea) {
-        [SeatBank storeSeats:seatRowLeavingVisibleArea.seats];
-        [seatRowLeavingVisibleArea.seats removeAllObjects];
-        seatRowLeavingVisibleArea.seats = nil;
-        [seatRowLeavingVisibleArea removeAllSeatsFromRow];
-    }
+  SeatRow *seatRowLeavingVisibleArea = [self seatRowWithSeatsLeavingView];
+  if(seatRowLeavingVisibleArea) {
+    [SeatBank storeSeats:seatRowLeavingVisibleArea.seats];
+    [seatRowLeavingVisibleArea.seats removeAllObjects];
+    seatRowLeavingVisibleArea.seats = nil;
+    [seatRowLeavingVisibleArea removeAllSeatsFromRow];
+  }
+}
+
+-(void)didTouchSeat:(SeatView *)seatView {
+  [self.delegate didTouchSeat:seatView];
+}
+
+-(void)dealloc {
+  [super dealloc];
+  [seatRowRef release];
+  [self.viewModel release];
+  [self.seatViewScroller release];
+  [self.delegate release];
 }
 
 @end

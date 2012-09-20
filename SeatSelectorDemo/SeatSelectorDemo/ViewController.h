@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SeatSelectorView.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <SeatSelectorViewDelegate>
+
+@property (nonatomic, retain) id<SeatSelectorViewDelegate> delegate;
 
 @end

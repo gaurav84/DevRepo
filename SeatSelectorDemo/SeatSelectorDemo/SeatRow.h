@@ -7,10 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SeatView.h"
 
-@interface SeatRow : UIView
+@protocol SeatRowDelegate <NSObject>
+@optional
+-(void)didTouchSeat:(SeatView *)seatView;
+@end
+
+@interface SeatRow : UIView <SeatViewDelegate>
 
 @property (nonatomic, retain) NSMutableArray *seats;
+@property (nonatomic, retain) id<SeatRowDelegate> delegate;
 
 -(void)addSeatsToRow;
 -(void)removeAllSeatsFromRow;
