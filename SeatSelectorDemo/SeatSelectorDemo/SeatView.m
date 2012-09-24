@@ -26,8 +26,7 @@
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-  NSLog(@"%@", NSStringFromCGRect(self.frame));
-  [self.delegate didTouchSeat:self];
+  [self.delegate didTouchSeat:self.frame];
 
   if(self.isSelected) {
     self.isSelected = NO;
@@ -37,6 +36,11 @@
     self.isSelected = YES;
     self.isSeatSelected.text = @"√";
   }
+}
+
+-(void)showSelected:(CGRect)seatViewFrame {
+  if(CGRectContainsRect(seatViewFrame, self.frame))
+    self.isSeatSelected.text = @"√";
 }
 
 -(void)dealloc {

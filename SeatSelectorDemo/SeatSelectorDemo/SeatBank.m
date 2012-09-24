@@ -35,7 +35,6 @@ static SeatBank *seatBank = nil;
         seats = [SeatBank instance].seats;
         [[SeatBank instance].seats removeAllObjects];
     }
-    [self totalSeats];
     return seats;
 }
 
@@ -45,11 +44,6 @@ static SeatBank *seatBank = nil;
             [[SeatBank instance].seats addObject:[seats objectAtIndex:i]];
         }
     }
-    [self totalSeats];
-}
-
-+(void)totalSeats {
-    //NSLog(@"Total Seats in SeatBank: %d", [[SeatBank instance].seats count]);
 }
 
 -(void)dealloc {

@@ -14,4 +14,5 @@
 
 +(NSMutableArray *)getSeats:(int)count;
 +(void)storeSeats:(NSMutableArray *)seats;
+
 @end

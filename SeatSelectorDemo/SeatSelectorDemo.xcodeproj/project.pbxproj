@@ -25,6 +25,7 @@
 		2F676E7B16060E900018CAC5 /* SeatSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F676E7A16060E900018CAC5 /* SeatSelectorView.xib */; };
 		2FE8978F1606C9F5003895AA /* SeatRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FE8978E1606C9F5003895AA /* SeatRow.xib */; };
 		A34E3F0C160AE87600892635 /* seat.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A34E3F0B160AE87600892635 /* seat.jpeg */; };
+		A368FB2E16103D9600D67A07 /* SelectedSeat.m in Sources */ = {isa = PBXBuildFile; fileRef = A368FB2D16103D9600D67A07 /* SelectedSeat.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,8 @@
 		2F676E7A16060E900018CAC5 /* SeatSelectorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SeatSelectorView.xib; sourceTree = "<group>"; };
 		2FE8978E1606C9F5003895AA /* SeatRow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SeatRow.xib; sourceTree = "<group>"; };
 		A34E3F0B160AE87600892635 /* seat.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = seat.jpeg; sourceTree = "<group>"; };
+		A368FB2C16103D9600D67A07 /* SelectedSeat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedSeat.h; sourceTree = "<group>"; };
+		A368FB2D16103D9600D67A07 /* SelectedSeat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedSeat.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +185,8 @@
 			children = (
 				2F676E7316060BF50018CAC5 /* SeatSelectorViewModel.h */,
 				2F676E7416060BF50018CAC5 /* SeatSelectorViewModel.m */,
+				A368FB2C16103D9600D67A07 /* SelectedSeat.h */,
+				A368FB2D16103D9600D67A07 /* SelectedSeat.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 				2F676E6A16060A9E0018CAC5 /* SeatSelectorView.m in Sources */,
 				2F676E6E16060AE60018CAC5 /* SeatBank.m in Sources */,
 				2F676E7516060BF50018CAC5 /* SeatSelectorViewModel.m in Sources */,
+				A368FB2E16103D9600D67A07 /* SelectedSeat.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

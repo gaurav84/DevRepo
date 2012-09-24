@@ -8,6 +8,7 @@
 
 #import "SeatRow.h"
 #import "SeatView.h"
+#import "SelectedSeat.h"
 
 @implementation SeatRow
 
@@ -42,9 +43,24 @@
   }
 }
 
--(void)didTouchSeat:(SeatView *)seatView {
-  [self.delegate didTouchSeat:seatView];
+-(void)didTouchSeat:(CGRect)seatViewFrame {
+  
+  SelectedSeat *selectedSeat = [[SelectedSeat alloc] init];
+  selectedSeat.selectedSeatViewFrame = seatViewFrame;
+  selectedSeat.selectedSeatRow = self;
+  
+  [self.delegate didTouchSeat:selectedSeat];
 }
+
+-(void)findSelectedSeatViews:(CGRect)seatViewFrame {
+  for(int i=0; i<[[self subviews] count]; i++) {
+    if([[[self subviews] objectAtIndex:i] isKindOfClass:[SeatView class]]) {
+      SeatView *seatView = [[self subviews] objectAtIndex:i];
+      [seatView showSelected:seatViewFrame];
+    }
+  }
+}
+
 
 -(void)dealloc {
   [super dealloc];

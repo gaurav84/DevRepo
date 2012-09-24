@@ -13,7 +13,7 @@
 
 @protocol SeatSelectorViewDelegate <NSObject>
 @optional
--(void)didTouchSeat:(SeatView *)seatView;
+-(void)didTouchSeat:(SelectedSeat *)selectedSeat;
 @end
 
 @interface SeatSelectorView : UIView <UIScrollViewDelegate, SeatRowDelegate>

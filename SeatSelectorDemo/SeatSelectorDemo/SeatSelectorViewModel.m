@@ -12,6 +12,7 @@
 
 -(id)init {
   if(self = [super init]) {
+    self.selectedSeats = [[[NSMutableArray alloc] init] autorelease];
   }
   
   return self;

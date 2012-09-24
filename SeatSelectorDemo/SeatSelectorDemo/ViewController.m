@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "SeatSelectorView.h"
+#import "SelectedSeat.h"
 
 @interface ViewController ()
 
@@ -25,11 +26,11 @@
 }
 
 -(SeatSelectorViewModel *)getStubModel {
-  SeatSelectorViewModel *viewModel = [[[SeatSelectorViewModel alloc] init] autorelease];
-  viewModel.totalSeats = 200;
-  viewModel.seatsPerRow = 10;
+  self.viewModel = [[[SeatSelectorViewModel alloc] init] autorelease];
+  self.viewModel.totalSeats = 200;
+  self.viewModel.seatsPerRow = 10;
   
-  return viewModel;
+  return self.viewModel;
 }
 
 - (void)viewDidUnload
@@ -43,8 +44,8 @@
   return YES;
 }
 
--(void)didTouchSeat:(SeatView *)seatView {
-  //NSLog(@"Touched: %@", NSStringFromCGRect(seatView.frame));
+-(void)didTouchSeat:(SelectedSeat *)selectedSeat {
+  [self.viewModel.selectedSeats addObject:selectedSeat];
 }
 
 -(void)dealloc {

@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "SeatView.h"
+#import "SelectedSeat.h"
+
+@class SelectedSeat;
 
 @protocol SeatRowDelegate <NSObject>
 @optional
--(void)didTouchSeat:(SeatView *)seatView;
+-(void)didTouchSeat:(SelectedSeat *)selectedSeat;
 @end
 
 @interface SeatRow : UIView <SeatViewDelegate>
@@ -21,5 +24,6 @@
 
 -(void)addSeatsToRow;
 -(void)removeAllSeatsFromRow;
+-(void)findSelectedSeatViews:(CGRect)seatViewFrame;
 
 @end
