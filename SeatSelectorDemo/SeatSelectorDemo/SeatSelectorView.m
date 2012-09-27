@@ -6,10 +6,6 @@
 //  Copyright (c) 2012 Gaurav Srivastava. All rights reserved.
 //
 
-#define PADDING 10
-#define SEAT_ROW_WIDTH 384
-#define SEAT_ROW_HEIGHT 50
-
 #import "SeatSelectorView.h"
 #import "SeatRow.h"
 #import "SeatBank.h"
@@ -18,6 +14,7 @@
 @implementation SeatSelectorView
 
 NSMutableArray *seatRowRef;
+BOOL isSeatAlreadyPresent;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -35,19 +32,20 @@ NSMutableArray *seatRowRef;
 
 -(void)initScroller {
   self.seatViewScroller.delegate = self;
-  self.seatViewScroller.contentSize = CGSizeMake(0, ceil((float)[[self viewModel] totalSeats]/[[self viewModel] seatsPerRow]) * (SEAT_ROW_HEIGHT + PADDING));
+  self.seatViewScroller.contentSize = CGSizeMake(0, ceil((float)[[self viewModel] totalSeats]/[[self viewModel] seatsPerRow]) * (self.viewModel.seatRowHeight + self.viewModel.padding));
 }
 
 -(void)update {
   [self initScroller];
   seatRowRef = [[NSMutableArray alloc] init];
+  isSeatAlreadyPresent = NO;
   
   float rows = ceil((float)[[self viewModel] totalSeats]/[[self viewModel] seatsPerRow]);
   for(int i=0; i<rows; i++) {
-    SeatRow *seatRow = [[[SeatRow alloc] initWithFrame:CGRectMake(0, (SEAT_ROW_HEIGHT + PADDING) * i, SEAT_ROW_WIDTH, SEAT_ROW_HEIGHT)] autorelease];
+    SeatRow *seatRow = [[[SeatRow alloc] initWithFrame:CGRectMake(0, (self.viewModel.seatRowHeight + self.viewModel.padding) * i, self.viewModel.seatRowWidth, self.viewModel.seatRowHeight)] autorelease];
     seatRow.delegate = self;
     [self.seatViewScroller addSubview:seatRow];
-
+    
     [seatRowRef addObject:seatRow];
     if(seatRow.seats == nil && [self ifScrollView:self.seatViewScroller containsView:seatRow]) {
       seatRow.seats = [SeatBank getSeats:self.viewModel.seatsPerRow];
@@ -116,28 +114,47 @@ NSMutableArray *seatRowRef;
   }
 }
 
--(void)didTouchSeat:(SelectedSeat *)selectedSeat {
-  [self.delegate didTouchSeat:selectedSeat];
-}
-
 -(void)showSelectedSeat {
   for(int i=0; i<[self.viewModel.selectedSeats count]; i++) {
     SelectedSeat *selectedSeat = [self.viewModel.selectedSeats objectAtIndex:i];
     SeatRow *selectedSeatRow = selectedSeat.selectedSeatRow;
-    [selectedSeatRow findSelectedSeatViews:selectedSeat.selectedSeatViewFrame];
+    [selectedSeatRow showSelectedSeatViews:selectedSeat.selectedSeatViewFrame];
   }
 }
 
--(BOOL)seatRowFrameMatches:(SeatRow *)seatRow {
-  for(int i=0; i<[self.viewModel.selectedSeats count]; i++) {
-    CGRect rect = [[self.viewModel.selectedSeats objectAtIndex:i] seatRowFrame];
-    if(CGRectContainsRect(rect, seatRow.frame)) {
-      return YES;
-      break;
-    }
-  }
+-(void)didTouchSeat:(SelectedSeat *)selectedSeat {
+  [self.delegate didTouchSeat:selectedSeat];
+  //[self.viewModel.selectedSeats addObject:selectedSeat];
   
-  return NO;
+  [self addSeatToModel:selectedSeat];
+}
+
+-(void)addSeatToModel:(SelectedSeat *)seat {
+  NSMutableArray *selectedSeatsArr = [self.viewModel.selectedSeats copy];
+  
+  if([self.viewModel.selectedSeats count] == 0) {
+    [self.viewModel.selectedSeats addObject:seat];
+    return;
+  }
+  else {
+    for(int i=0; i<[selectedSeatsArr count]; i++) {
+      SelectedSeat *selectedSeat = [selectedSeatsArr objectAtIndex:i];
+      SeatRow *seatRow = selectedSeat.selectedSeatRow;
+      CGRect seatViewFrame = selectedSeat.selectedSeatViewFrame;
+      
+      if([seat.selectedSeatRow isEqual:seatRow] && CGRectContainsRect(seatViewFrame, seat.selectedSeatViewFrame)) {
+        isSeatAlreadyPresent = YES;
+        [self.viewModel.selectedSeats removeObjectAtIndex:i];
+        return;
+      }
+      else {
+        isSeatAlreadyPresent = NO;
+      }
+    }
+    
+    if(!isSeatAlreadyPresent)
+      [self.viewModel.selectedSeats addObject:seat];
+  }
 }
 
 -(void)dealloc {

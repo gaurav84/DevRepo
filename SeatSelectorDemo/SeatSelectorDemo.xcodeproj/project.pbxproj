@@ -118,7 +118,6 @@
 				2F676E4A160607860018CAC5 /* AppDelegate.m */,
 				2F676E4C160607860018CAC5 /* ViewController.h */,
 				2F676E4D160607860018CAC5 /* ViewController.m */,
-				2F676E4F160607860018CAC5 /* ViewController.xib */,
 				2F676E41160607860018CAC5 /* Supporting Files */,
 			);
 			path = SeatSelectorDemo;
@@ -197,6 +196,7 @@
 				2FE8978E1606C9F5003895AA /* SeatRow.xib */,
 				2F676E6616060A340018CAC5 /* SeatView.xib */,
 				2F676E7A16060E900018CAC5 /* SeatSelectorView.xib */,
+				2F676E4F160607860018CAC5 /* ViewController.xib */,
 			);
 			name = Nibs;
 			sourceTree = "<group>";

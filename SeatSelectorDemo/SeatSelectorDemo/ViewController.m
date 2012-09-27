@@ -45,7 +45,7 @@
 }
 
 -(void)didTouchSeat:(SelectedSeat *)selectedSeat {
-  [self.viewModel.selectedSeats addObject:selectedSeat];
+  //NSLog(@"%@", self.viewModel.selectedSeats);
 }
 
 -(void)dealloc {

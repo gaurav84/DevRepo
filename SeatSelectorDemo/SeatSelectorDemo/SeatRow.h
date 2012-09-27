@@ -24,6 +24,6 @@
 
 -(void)addSeatsToRow;
 -(void)removeAllSeatsFromRow;
--(void)findSelectedSeatViews:(CGRect)seatViewFrame;
+-(void)showSelectedSeatViews:(CGRect)seatViewFrame;
 
 @end

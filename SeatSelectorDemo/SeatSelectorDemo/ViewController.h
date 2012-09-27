@@ -13,6 +13,5 @@
 
 @property (nonatomic, retain) SeatSelectorViewModel *viewModel;
 @property (nonatomic, retain) id<SeatSelectorViewDelegate> delegate;
-@property (nonatomic, retain) IBOutlet UILabel *display;
 
 @end

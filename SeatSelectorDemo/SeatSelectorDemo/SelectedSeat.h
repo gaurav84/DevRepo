@@ -15,5 +15,6 @@
 
 @property (nonatomic) CGRect selectedSeatViewFrame;
 @property (nonatomic, assign) SeatRow *selectedSeatRow;
+@property (nonatomic) BOOL isSelected;
 
 @end

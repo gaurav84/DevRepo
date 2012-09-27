@@ -13,6 +13,9 @@
 -(id)init {
   if(self = [super init]) {
     self.selectedSeats = [[[NSMutableArray alloc] init] autorelease];
+    self.padding = 10;
+    self.seatRowHeight = 50;
+    self.seatRowWidth = 384;
   }
   
   return self;

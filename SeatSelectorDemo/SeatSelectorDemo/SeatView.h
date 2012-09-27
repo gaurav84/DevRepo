@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "Seat.h"
 
-@class SeatView;
+@class SelectedSeat;
 
 @protocol SeatViewDelegate <NSObject>
 @optional
--(void)didTouchSeat:(CGRect)seatViewFrame;
+-(void)didTouchSeat:(SelectedSeat *)selectedSeat;
 @end
 
 @interface SeatView : UIView
@@ -22,7 +22,7 @@
 @property (nonatomic, retain) IBOutlet UIImageView *seatImg;
 @property (nonatomic, retain) id<SeatViewDelegate> delegate;
 @property (nonatomic, retain) IBOutlet UILabel *isSeatSelected;
-@property (nonatomic) int isSelected;
+@property (nonatomic) BOOL isSelected;
 @property (nonatomic) CGRect seatRowFrame;
 
 -(void)showSelected:(CGRect)seatViewFrame;

@@ -7,9 +7,9 @@
 //
 
 #import "SeatView.h"
+#import "SelectedSeat.h"
 
 @implementation SeatView
-
 
 - (id)initWithFrame:(CGRect)frame {
   self = [super initWithFrame:frame];
@@ -26,7 +26,6 @@
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-  [self.delegate didTouchSeat:self.frame];
 
   if(self.isSelected) {
     self.isSelected = NO;
@@ -34,13 +33,19 @@
   }
   else {
     self.isSelected = YES;
-    self.isSeatSelected.text = @"√";
+    self.isSeatSelected.text = @"✔";
   }
+  
+  SelectedSeat *selectedSeat = [[[SelectedSeat alloc] init] autorelease];
+  selectedSeat.isSelected = self.isSelected;
+  selectedSeat.selectedSeatViewFrame = self.frame;
+  [self.delegate didTouchSeat:selectedSeat];
+
 }
 
 -(void)showSelected:(CGRect)seatViewFrame {
   if(CGRectContainsRect(seatViewFrame, self.frame))
-    self.isSeatSelected.text = @"√";
+    self.isSeatSelected.text = @"✔";
 }
 
 -(void)dealloc {

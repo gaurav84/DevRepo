@@ -12,6 +12,10 @@
 
 @property (nonatomic) int totalSeats;
 @property (nonatomic) int seatsPerRow;
+@property (nonatomic) int padding;
+@property (nonatomic) int seatRowWidth;
+@property (nonatomic) int seatRowHeight;
+
 @property (nonatomic, retain) NSMutableArray *selectedSeats;
 
 @end
