@@ -13,6 +13,8 @@
 @property (nonatomic) int totalSeats;
 @property (nonatomic) int seatsPerRow;
 @property (nonatomic) int padding;
+@property (nonatomic) int seatWidth;
+@property (nonatomic) int seatHeight;
 @property (nonatomic) int seatRowWidth;
 @property (nonatomic) int seatRowHeight;
 

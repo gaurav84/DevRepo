@@ -44,6 +44,7 @@ BOOL isSeatAlreadyPresent;
   for(int i=0; i<rows; i++) {
     SeatRow *seatRow = [[[SeatRow alloc] initWithFrame:CGRectMake(0, (self.viewModel.seatRowHeight + self.viewModel.padding) * i, self.viewModel.seatRowWidth, self.viewModel.seatRowHeight)] autorelease];
     seatRow.delegate = self;
+    seatRow.viewModel = self.viewModel;
     [self.seatViewScroller addSubview:seatRow];
     
     [seatRowRef addObject:seatRow];
@@ -123,9 +124,7 @@ BOOL isSeatAlreadyPresent;
 }
 
 -(void)didTouchSeat:(SelectedSeat *)selectedSeat {
-  [self.delegate didTouchSeat:selectedSeat];
-  //[self.viewModel.selectedSeats addObject:selectedSeat];
-  
+  [self.delegate didTouchSeat:selectedSeat];  
   [self addSeatToModel:selectedSeat];
 }
 
@@ -159,7 +158,7 @@ BOOL isSeatAlreadyPresent;
 
 -(void)dealloc {
   [super dealloc];
-  [seatRowRef release];
+  //[seatRowRef release];
   [self.viewModel release];
   [self.seatViewScroller release];
   [self.delegate release];

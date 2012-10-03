@@ -29,6 +29,8 @@
   self.viewModel = [[[SeatSelectorViewModel alloc] init] autorelease];
   self.viewModel.totalSeats = 200;
   self.viewModel.seatsPerRow = 10;
+  self.viewModel.seatWidth = 38;
+  self.viewModel.seatHeight = 38;
   
   return self.viewModel;
 }

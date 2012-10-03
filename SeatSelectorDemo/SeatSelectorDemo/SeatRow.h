@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SeatView.h"
 #import "SelectedSeat.h"
+#import "SeatSelectorViewModel.h"
 
 @class SelectedSeat;
 
@@ -20,6 +21,7 @@
 @interface SeatRow : UIView <SeatViewDelegate>
 
 @property (nonatomic, retain) NSMutableArray *seats;
+@property (nonatomic, retain) SeatSelectorViewModel *viewModel;
 @property (nonatomic, retain) id<SeatRowDelegate> delegate;
 
 -(void)addSeatsToRow;
